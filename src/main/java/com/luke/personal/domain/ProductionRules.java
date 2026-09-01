@@ -19,7 +19,7 @@ public class ProductionRules {
         List<Character> characters = current.chars().mapToObj(c -> (char) c).toList();
         StringBuilder sb = new StringBuilder();
         for (var c : characters) {
-            sb.append(ruleSet.getOrDefault(c, ""));
+            sb.append(ruleSet.getOrDefault(c, c.toString()));
         }
 
         return sb.toString();
@@ -36,6 +36,9 @@ public class ProductionRules {
 
         public Builder mapping(char from, String to) {
             Objects.requireNonNull(to, "to");
+            if (to.isEmpty()) {
+                throw new IllegalArgumentException("Cannot map '%s' to an empty string!".formatted(from));
+            }
 
             this.proposedRules.put(from, to);
             return this;
