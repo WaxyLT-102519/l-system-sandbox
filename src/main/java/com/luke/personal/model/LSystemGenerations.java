@@ -2,12 +2,15 @@ package com.luke.personal.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LSystemGenerations {
 
     private final List<LSystem> generations;
 
     public LSystemGenerations(LSystem lsystem) {
+        Objects.requireNonNull(lsystem, "lsystem");
+
         this.generations = new ArrayList<>();
         this.generations.add(lsystem);
     }

@@ -26,8 +26,6 @@ public class ProductionRules {
     }
 
 
-    public static final ProductionRules NONE = ProductionRules.builder().build();
-
     public static Builder builder() {
         return new Builder();
     }
