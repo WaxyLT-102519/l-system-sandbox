@@ -32,6 +32,8 @@ public class LSystemTests {
         }
     }
 
+
+
     @Nested
     @DisplayName("Tests for applyRules")
     class ApplyRulesTests {

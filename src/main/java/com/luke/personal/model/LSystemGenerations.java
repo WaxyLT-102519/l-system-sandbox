@@ -15,13 +15,9 @@ public class LSystemGenerations {
         this.generations.add(lsystem);
     }
 
-    public String firstGeneration() {
-        return this.generation(1);
-    }
-
     public String generation(int generation) {
         if (generation <= 0) {
-            throw new IllegalArgumentException("Generation must be greater than 0, but was " + generation);
+            throw new IllegalArgumentException("Generation must be greater than 0, but was %d.".formatted(generation));
         }
         int normalizedIndex = generation - 1;
 
