@@ -1,4 +1,4 @@
-package com.luke.personal.domain;
+package com.luke.personal.model;
 
 import java.util.HashMap;
 import java.util.List;

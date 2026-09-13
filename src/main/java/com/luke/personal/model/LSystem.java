@@ -1,4 +1,4 @@
-package com.luke.personal.domain;
+package com.luke.personal.model;
 
 public record LSystem(String axiom, ProductionRules rules) {
 

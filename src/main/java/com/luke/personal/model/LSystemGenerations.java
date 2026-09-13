@@ -1,4 +1,4 @@
-package com.luke.personal.domain;
+package com.luke.personal.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +17,13 @@ public class LSystemGenerations {
     }
 
     public String generation(int generation) {
+        if (generation <= 0) {
+            throw new IllegalArgumentException("Generation must be greater than 0, but was " + generation);
+        }
+        int normalizedIndex = generation - 1;
+
         if (this.generations.size() >= generation) {
-            return this.generations.get(generation - 1).axiom();
+            return this.generations.get(normalizedIndex).axiom();
         }
 
         while (this.generations.size() < generation) {
@@ -26,6 +31,6 @@ public class LSystemGenerations {
             this.generations.add(previousGeneration.applyRules());
         }
 
-        return this.generations.get(generation - 1).axiom();
+        return this.generations.get(normalizedIndex).axiom();
     }
 }

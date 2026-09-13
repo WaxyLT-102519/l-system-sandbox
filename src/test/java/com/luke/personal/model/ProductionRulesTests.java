@@ -1,4 +1,4 @@
-package com.luke.personal.domain;
+package com.luke.personal.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
