@@ -1,7 +1,7 @@
 package com.luke.personal.presenter;
 
 import com.luke.personal.model.LSystemGenerations;
-import com.luke.personal.view.AxiomView;
+import com.luke.personal.view.axiom.AxiomView;
 
 public class AxiomPresenter {
     private final LSystemGenerations model;

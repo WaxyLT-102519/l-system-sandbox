@@ -1,4 +1,4 @@
-package com.luke.personal.view;
+package com.luke.personal.view.axiom;
 
 public interface AxiomView {
     void onNextGenerationClicked(Runnable handler);

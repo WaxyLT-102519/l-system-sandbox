@@ -1,6 +1,6 @@
 package com.luke.personal.presenter;
 
-import com.luke.personal.view.AxiomView;
+import com.luke.personal.view.axiom.AxiomView;
 
 public class AxiomViewSpy implements AxiomView {
     Runnable nextGen, prevGen;
