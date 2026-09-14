@@ -11,10 +11,10 @@ public class AxiomPresenter {
     public AxiomPresenter(LSystemGenerations model, AxiomView view) {
         this.model = model;
         this.view = view;
-        this.view.showAxiom(model.generation(currentGeneration));
-        this.view.showGenerationNumber(currentGeneration);
         this.view.onNextGenerationClicked(this::handleNextGeneration);
         this.view.onPreviousGenerationClicked(this::handlePreviousGeneration);
+        this.view.showAxiom(model.generation(currentGeneration));
+        this.view.showGenerationNumber(currentGeneration);
         this.view.enablePrevious(false);
     }
 
