@@ -4,8 +4,8 @@ import com.luke.personal.model.LSystemGenerations;
 import com.luke.personal.view.AxiomView;
 
 public class AxiomPresenter {
-    private LSystemGenerations model;
-    private AxiomView view;
+    private final LSystemGenerations model;
+    private final AxiomView view;
     private int currentGeneration = 1;
 
     public AxiomPresenter(LSystemGenerations model, AxiomView view) {
@@ -18,19 +18,17 @@ public class AxiomPresenter {
         this.view.enablePrevious(false);
     }
 
-    public void handleNextGeneration() {
+    private void handleNextGeneration() {
         currentGeneration++;
         String nextGeneration = model.generation(currentGeneration);
 
         view.showAxiom(nextGeneration);
         view.showGenerationNumber(currentGeneration);
 
-        if (currentGeneration > 1) {
-            view.enablePrevious(true);
-        }
+        view.enablePrevious(true);
     }
 
-    public void handlePreviousGeneration() {
+    private void handlePreviousGeneration() {
         if (currentGeneration <= 1) {
             return;
         }
