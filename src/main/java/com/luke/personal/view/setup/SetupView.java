@@ -6,5 +6,7 @@ public interface SetupView {
     LSystem getLSystem();
     void onSubmitClicked(Runnable handler);
     void onPlusClicked(Runnable handler);
+    void onMinusClicked(Runnable handler);
     void addRuleInput();
+    void removeRuleInput();
 }

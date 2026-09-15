@@ -13,6 +13,7 @@ public class SetupPresenter {
         this.view = view;
         this.view.onSubmitClicked(this::handleSubmitClicked);
         this.view.onPlusClicked(this::handlePlusClicked);
+        this.view.onMinusClicked(this::handleMinusClicked);
     }
 
     private void handleSubmitClicked() {
@@ -22,5 +23,9 @@ public class SetupPresenter {
 
     private void handlePlusClicked() {
         view.addRuleInput();
+    }
+
+    private void handleMinusClicked() {
+        view.removeRuleInput();
     }
 }
