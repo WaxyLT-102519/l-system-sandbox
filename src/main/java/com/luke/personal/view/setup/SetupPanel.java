@@ -1,6 +1,7 @@
 package com.luke.personal.view.setup;
 
 import com.luke.personal.model.LSystem;
+import com.luke.personal.model.LSystemGenerations;
 import com.luke.personal.model.ProductionRules;
 
 import javax.swing.*;
@@ -43,7 +44,7 @@ public class SetupPanel extends JPanel implements SetupView {
     }
 
     @Override
-    public LSystem getLSystem() {
+    public LSystemGenerations getLSystemGenerations() {
         String axiom = axiomField.getText();
 
         ProductionRules.Builder builder = ProductionRules.builder();
@@ -52,7 +53,9 @@ public class SetupPanel extends JPanel implements SetupView {
         }
         ProductionRules productionRules = builder.build();
 
-        return new LSystem(axiom, productionRules);
+        LSystem lsystem = new LSystem(axiom, productionRules);
+
+        return new LSystemGenerations(lsystem);
     }
 
     @Override

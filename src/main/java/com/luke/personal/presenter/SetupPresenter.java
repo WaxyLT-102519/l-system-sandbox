@@ -1,10 +1,13 @@
 package com.luke.personal.presenter;
 
 import com.luke.personal.model.LSystem;
+import com.luke.personal.model.LSystemGenerations;
+import com.luke.personal.routes.Navigable;
 import com.luke.personal.routes.Navigator;
+import com.luke.personal.routes.Route;
 import com.luke.personal.view.setup.SetupView;
 
-public class SetupPresenter {
+public class SetupPresenter implements Navigable {
     private final Navigator navigator;
     private final SetupView view;
 
@@ -16,9 +19,14 @@ public class SetupPresenter {
         this.view.onMinusClicked(this::handleMinusClicked);
     }
 
+    @Override
+    public void onShow(Object payload) {
+
+    }
+
     private void handleSubmitClicked() {
-        LSystem userInput = view.getLSystem();
-        navigator.goToAxiom(userInput);
+        LSystemGenerations generations = view.getLSystemGenerations();
+        navigator.goTo(Route.AXIOM, generations);
     }
 
     private void handlePlusClicked() {

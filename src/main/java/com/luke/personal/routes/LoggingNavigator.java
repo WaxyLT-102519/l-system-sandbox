@@ -1,11 +1,11 @@
 package com.luke.personal.routes;
 
-import com.luke.personal.model.LSystem;
-
 public class LoggingNavigator implements Navigator {
 
     @Override
-    public void goToAxiom(LSystem lsystem) {
-        System.out.println("Navigating to the Axiom page. Payload: " + lsystem);
+    public void goTo(Route route, Object payload) {
+        String maybeString = payload == null ? "nothing" : "[%s]".formatted(payload);
+
+        System.out.printf("Navigating to [%s], carrying %s%n", route, maybeString);
     }
 }

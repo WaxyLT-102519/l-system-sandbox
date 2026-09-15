@@ -1,10 +1,12 @@
 package com.luke.personal.presenter;
 
+import com.luke.personal.model.LSystem;
 import com.luke.personal.model.LSystemGenerations;
+import com.luke.personal.routes.Navigable;
 import com.luke.personal.view.axiom.AxiomView;
 
-public class AxiomPresenter {
-    private final LSystemGenerations model;
+public class AxiomPresenter implements Navigable {
+    private LSystemGenerations model;
     private final AxiomView view;
     private int currentGeneration = 1;
 
@@ -16,6 +18,11 @@ public class AxiomPresenter {
         this.view.showAxiom(model.generation(currentGeneration));
         this.view.showGenerationNumber(currentGeneration);
         this.view.enablePrevious(false);
+    }
+
+    @Override
+    public void onShow(Object payload) {
+        this.model = (LSystemGenerations) payload;
     }
 
     private void handleNextGeneration() {

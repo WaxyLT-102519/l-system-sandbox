@@ -3,11 +3,9 @@ package com.luke.personal;
 import com.luke.personal.model.LSystem;
 import com.luke.personal.model.LSystemGenerations;
 import com.luke.personal.model.ProductionRules;
-import com.luke.personal.presenter.AxiomPresenter;
 import com.luke.personal.presenter.SetupPresenter;
 import com.luke.personal.routes.LoggingNavigator;
 import com.luke.personal.routes.Navigator;
-import com.luke.personal.view.axiom.AxiomPanel;
 import com.luke.personal.view.setup.SetupPanel;
 
 import javax.swing.*;
