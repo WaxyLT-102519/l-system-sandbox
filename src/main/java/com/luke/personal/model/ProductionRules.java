@@ -25,6 +25,17 @@ public class ProductionRules {
         return sb.toString();
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (var entry : ruleSet.entrySet()) {
+            String rule = "(%s -> %s)".formatted(entry.getKey(), entry.getValue());
+            sb.append(rule);
+        }
+
+        return "[" + sb + "]";
+    }
+
+
 
     public static Builder builder() {
         return new Builder();
