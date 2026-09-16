@@ -24,6 +24,7 @@ public class SetupPanel extends JPanel implements SetupView {
         JLabel axiomLabel = new JLabel("axiom:");
         axiomLabel.setLabelFor(axiomField);
         axiomField.setEditable(true);
+        axiomField.setColumns(10);
         axiomPanel.add(axiomLabel);
         axiomPanel.add(axiomField);
         add(axiomPanel, BorderLayout.NORTH);
@@ -97,10 +98,12 @@ public class SetupPanel extends JPanel implements SetupView {
             JLabel characterLabel = new JLabel("character:");
             characterLabel.setLabelFor(characterField);
             characterField.setEditable(true);
+            characterField.setColumns(10);
 
             JLabel ruleLabel = new JLabel("rule:");
             ruleLabel.setLabelFor(ruleField);
             ruleField.setEditable(true);
+            ruleField.setColumns(10);
 
             add(characterLabel);
             add(characterField);
