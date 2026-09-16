@@ -3,6 +3,7 @@ package com.luke.personal.presenter;
 import com.luke.personal.model.LSystem;
 import com.luke.personal.model.LSystemGenerations;
 import com.luke.personal.model.fixtures.Rules;
+import com.luke.personal.routes.NavigatorSpy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -30,14 +31,34 @@ public class AxiomPresenterTests {
         @DisplayName("Should initialize view when constructed")
         void shouldInitializeView_whenConstructed() {
             AxiomViewSpy spy = new AxiomViewSpy();
+            NavigatorSpy nav = new NavigatorSpy();
 
-            AxiomPresenter presenter = new AxiomPresenter(model, spy);
+            new AxiomPresenter(spy, nav);
 
-            assertThat(spy.axiom).isEqualTo("ab");
             assertThat(spy.generationNumber).isEqualTo(1);
             assertThat(spy.isPreviousEnabled).isFalse();
             assertThat(spy.nextGen).isNotNull();
             assertThat(spy.prevGen).isNotNull();
+        }
+    }
+
+
+
+    @Nested
+    @DisplayName("Tests for onShow")
+    class OnShowTests {
+
+        @Test
+        @DisplayName("Should reset the current model and generation when called")
+        void shouldResetTheCurrentModelAndGeneration_whenCalled() {
+            AxiomViewSpy spy = new AxiomViewSpy();
+            NavigatorSpy nav = new NavigatorSpy();
+
+            AxiomPresenter presenter = new AxiomPresenter(spy, nav);
+            presenter.onShow(model);
+
+            assertThat(spy.axiom).isEqualTo("ab");
+            assertThat(spy.generationNumber).isEqualTo(1);
         }
     }
 
@@ -51,7 +72,9 @@ public class AxiomPresenterTests {
         @DisplayName("Should show the next generation when called")
         void shouldShowTheNextGeneration_whenCalled() {
             AxiomViewSpy spy = new AxiomViewSpy();
-            AxiomPresenter presenter = new AxiomPresenter(model, spy);
+            NavigatorSpy nav = new NavigatorSpy();
+            AxiomPresenter presenter = new AxiomPresenter(spy, nav);
+            presenter.onShow(model);
 
             // presenter.handleNextGeneration()
             spy.nextGen.run();
@@ -72,7 +95,9 @@ public class AxiomPresenterTests {
         @DisplayName("Should do nothing when current generation is the first generation")
         void shouldDoNothing_whenCurrentGenerationIsTheFirstGeneration() {
             AxiomViewSpy spy = new AxiomViewSpy();
-            AxiomPresenter presenter = new AxiomPresenter(model, spy);
+            NavigatorSpy nav = new NavigatorSpy();
+            AxiomPresenter presenter = new AxiomPresenter(spy, nav);
+            presenter.onShow(model);
 
             // no generations have been incremented yet
 
@@ -93,7 +118,9 @@ public class AxiomPresenterTests {
         @DisplayName("Should show the previous generation and disable the previous button when moving from the second to first generation")
         void shouldShowThePreviousGenerationAndDisableThePreviousButton_whenMovingFromTheSecondToFirstGeneration() {
             AxiomViewSpy spy = new AxiomViewSpy();
-            AxiomPresenter presenter = new AxiomPresenter(model, spy);
+            NavigatorSpy nav = new NavigatorSpy();
+            AxiomPresenter presenter = new AxiomPresenter(spy, nav);
+            presenter.onShow(model);
             spy.nextGen.run(); // setup step, move generation to 2
 
             // presenter.handlePreviousGeneration()
@@ -108,7 +135,9 @@ public class AxiomPresenterTests {
         @DisplayName("Should show the previous generation when called")
         void shouldShowThePreviousGeneration_whenCalled() {
             AxiomViewSpy spy = new AxiomViewSpy();
-            AxiomPresenter presenter = new AxiomPresenter(model, spy);
+            NavigatorSpy nav = new NavigatorSpy();
+            AxiomPresenter presenter = new AxiomPresenter(spy, nav);
+            presenter.onShow(model);
             spy.nextGen.run(); // "aba", generation 2
             spy.nextGen.run(); // "abaab", generation 3
             spy.nextGen.run(); // "abaababa", generation 4

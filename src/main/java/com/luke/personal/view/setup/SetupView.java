@@ -1,6 +1,5 @@
 package com.luke.personal.view.setup;
 
-import com.luke.personal.model.LSystem;
 import com.luke.personal.model.LSystemGenerations;
 
 public interface SetupView {

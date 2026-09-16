@@ -24,6 +24,7 @@ public class AxiomPresenter extends Navigable {
         this.model = (LSystemGenerations) payload;
         this.currentGeneration = 1;
         view.showAxiom(model.generation(currentGeneration));
+        view.showGenerationNumber(currentGeneration);
     }
 
     private void handleNextGeneration() {
