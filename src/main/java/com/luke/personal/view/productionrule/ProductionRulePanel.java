@@ -31,6 +31,11 @@ public class ProductionRulePanel extends JPanel implements ProductionRuleView {
     }
 
     @Override
+    public JComponent getComponent() {
+        return this;
+    }
+
+    @Override
     public char getCharacter() {
         return characterField.getText().charAt(0);
     }

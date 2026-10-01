@@ -45,6 +45,11 @@ public class SetupPanel extends JPanel implements SetupView {
     }
 
     @Override
+    public JComponent getComponent() {
+        return this;
+    }
+
+    @Override
     public LSystemGenerations getLSystemGenerations() {
         String axiom = axiomField.getText();
 

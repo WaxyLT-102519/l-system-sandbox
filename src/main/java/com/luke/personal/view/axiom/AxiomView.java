@@ -1,6 +1,8 @@
 package com.luke.personal.view.axiom;
 
-public interface AxiomView {
+import com.luke.personal.view.SwingView;
+
+public interface AxiomView extends SwingView {
     void onNextGenerationClicked(Runnable handler);
     void onPreviousGenerationClicked(Runnable handler);
 

@@ -30,6 +30,11 @@ public class AxiomPanel extends JPanel implements AxiomView {
     }
 
     @Override
+    public JPanel getComponent() {
+        return this;
+    }
+
+    @Override
     public void onNextGenerationClicked(Runnable handler) {
         nextButton.addActionListener(e -> handler.run());
     }
