@@ -17,11 +17,6 @@ public class SetupPresenter extends Navigable {
         this.view.onMinusClicked(this::handleMinusClicked);
     }
 
-    @Override
-    public void onShow(Object payload) {
-
-    }
-
     private void handleSubmitClicked() {
         LSystemGenerations generations = view.getLSystemGenerations();
         navigator.goTo(Route.AXIOM, generations);

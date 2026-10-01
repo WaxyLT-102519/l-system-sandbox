@@ -8,5 +8,7 @@ public abstract class Navigable {
         this.navigator = navigator;
     }
 
-    public abstract void onShow(Object payload);
+    public void onShow(Object payload) {
+        // no-op, makes overriding optional when needed
+    }
 }
